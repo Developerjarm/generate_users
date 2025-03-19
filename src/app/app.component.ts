@@ -38,8 +38,17 @@ export class AppComponent {
   // }
 
   generate() {
+
+  if(this.celular === '' || this.celular === 'NO APLICA' && this.type === 'SPT'){
+  //validate campos empty
+ this.celular = '1111111111';
+  }
+  if(this.type === 'SITAR'){
     //validate campos empty
-    if (this.cedula - length === 0 || this.name === '' || this.type === '' || this.POS === '' || this.celular === '') {
+   this.celular = 'NO APLICA';
+    }
+    //validate campos empty
+    if (this.cedula - length === 0 || this.name === '' || this.type === '' || this.POS === '') {
       Swal.fire({
         title: "Error",
         text: "Debe completar todos los campos",
@@ -105,7 +114,7 @@ export class AppComponent {
         password: passwordNotEspacio,
         tipoDeUsuario: this.type,
         POS: this.POS.toUpperCase(),
-        celular: this.celular
+        celular: this.celular ? this.celular : '',
       });
       sessionStorage.setItem('cedulas', JSON.stringify(this.cedulas));
       Swal.fire({

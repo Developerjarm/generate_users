@@ -27,8 +27,8 @@ export class UserSitarService {
     const letrasSeleccionadas: string[] = [];
     while (letrasSeleccionadas.length < 4) {
       const letra = name[Math.floor(Math.random() * name.length)];
-      if (!letrasSeleccionadas.includes(letra)) {
-        letrasSeleccionadas.push(letra);
+      if (!letrasSeleccionadas.includes(letra) && letra !== ' ' && letra !== 'ñ') {
+        letrasSeleccionadas.push(letra.toLowerCase());
       }
     }
     this.partName = letrasSeleccionadas;
