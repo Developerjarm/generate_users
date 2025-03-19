@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('/node_modules/spectre.css/dist/spectre.min.css');
+body{
+    background-color: rgb(240, 240, 240);
+}
