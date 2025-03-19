@@ -29,13 +29,13 @@ export class AppComponent {
   constructor(private userSitarService: UserSitarService) { }
   cambiosPendientes: boolean = true; // Simula que hay cambios sin guardar
 
-  // @HostListener('window:beforeunload', ['$event'])
-  // onBeforeUnload(event: BeforeUnloadEvent): void {
-  //   if (this.cambiosPendientes) {
-  //     event.preventDefault();
-  //     event.returnValue = ''; 
-  //   }
-  // }
+   @HostListener('window:beforeunload', ['$event'])
+   onBeforeUnload(event: BeforeUnloadEvent): void {
+     if (this.cambiosPendientes) {
+       event.preventDefault();
+       event.returnValue = ''; 
+     }
+   }
 
   generate() {
 
